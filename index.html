@@ -2,19 +2,98 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body>
-        <h1>Hello world - index.html</h1>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-        
-        <script src="./script.js" ></script>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="highscore-time-row">
+            <div class="col-sm-2">
+                <a href="./highscores.html" id="view-high-score">View Highscores</a>
+            </div>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-2" id="time-div">Time: <span id="time-counter">0</span></div>
+
+        </div>
+        <div id="quiz-start-message">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8 text-center">
+                    <h1>Coding Quiz Challenge</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8 text-center">
+                    <p>
+                        Try to answer the following code-related questions within the time
+                        limit. Keep in mind that incorrect answers will penalize your
+                        score/time by ten seconds!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8 text-center">
+                    <button id="start-quiz-button">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+        <div id="quiz-questions">
+
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8" id="question-string"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8" id="question-options">
+                    <ol id="option-list"></ol>
+                </div>
+            </div>
+        </div>
+        <div id="result-div">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8" >
+                    <hr>
+                    <span id="answer-check-result"></span>
+                </div>
+            </div>
+
+        </div>
+        <div id="all-done">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <h1>All Done!</h1>
+                    <p>Your final score is: <span id="test-score"></span></p>
+                    <form>
+                        <label for="user-initials">Enter Initials:</label>
+                        <input type="text" placeholder=" " name="initials" id="user-initials">
+                        <button>Submit</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
 </html>

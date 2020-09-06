@@ -1,0 +1,60 @@
+#view-high-score{
+
+    color:purple;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+#time-div{
+   text-align: right;
+   position: fixed;
+   top:0;
+   right: 0;
+
+}
+
+#highscore-time-row
+{
+  margin-bottom: 50px;
+}
+
+
+#quiz-questions
+{
+    display: none;
+}
+
+#result-div
+{
+    display: none;
+}
+
+#all-done{
+
+    display: none;
+}
+
+
+
+
+#option-list{
+    /* list-style-type: none; */
+    padding-left: 15px;
+    background-color: white;
+}
+
+
+
+
+  
+li button {
+    
+    border: none;
+    height: 30px;
+    cursor: pointer;
+    background-color: #3f1477;
+    color: white;
+    font-size: 1em;
+  }
+  
