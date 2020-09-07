@@ -71,7 +71,7 @@ li button {
 }
   
 .go-back-btn,
-.clear-highscore-btn
+.clear-highscores-btn
 {
     background-color: #3f1477;
     color: white;
@@ -84,7 +84,7 @@ li button {
     background-color: rgb(147, 119, 175);
 }
 
-.clear-highscore-btn:hover{
+.clear-highscores-btn:hover{
     /* opacity: 1; */
      color: white;
      background-color: rgb(147, 119, 175);
