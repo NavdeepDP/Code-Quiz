@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8 text-center">
-                    <button id="start-quiz-button">Start Quiz</button>
+                    <button class="btn btn-sm" id="start-quiz-button">Start Quiz</button>
                 </div>
             </div>
         </div>
@@ -61,14 +61,14 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8" id="question-options">
-                    <ol id="option-list"></ol>
+                    <ul id="option-list"></ul>
                 </div>
             </div>
         </div>
         <div id="result-div">
             <div class="row">
                 <div class="col-sm-2"></div>
-                <div class="col-sm-8" >
+                <div class="col-sm-8">
                     <hr>
                     <span id="answer-check-result"></span>
                 </div>
@@ -83,8 +83,8 @@
                     <p>Your final score is: <span id="test-score"></span></p>
                     <form>
                         <label for="user-initials">Enter Initials:</label>
-                        <input type="text" placeholder=" " name="initials" id="user-initials">
-                        <button id ="score-submit">Submit</button>
+                        <input type="text" class="form-control" placeholder=" " name="initials" id="user-initials">
+                        <button class="btn btn-sm" id="score-submit">Submit</button>
                     </form>
                 </div>
 

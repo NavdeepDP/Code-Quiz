@@ -100,7 +100,8 @@ function index() {
             listElement.setAttribute("question-index", questionIndex);
             listElement.style.marginBottom = "5px";
             var listButtonElement = document.createElement("button");
-            listButtonElement.textContent = questionSet[questionIndex].options[i];
+            listButtonElement.textContent = i+1 + ". " + questionSet[questionIndex].options[i];
+            listButtonElement.className ="btn btn-sm button-settings";
             listElement.appendChild(listButtonElement);
             optionList.appendChild(listElement);
         }
@@ -206,10 +207,13 @@ function index() {
         object.score = score;
         if (userInitialValue.length > 0) {
             highestScoresSet.push(object);
+            localStorage.setItem("scores", JSON.stringify(highestScoresSet));
+            window.location.href = "./highscores.html";
         }
-
-        localStorage.setItem("scores", JSON.stringify(highestScoresSet));
-        window.location.href = "./highscores.html";
+        else{
+            alert("Scores not submitted! Please enter Initials");
+        }
+        
     });
 
 

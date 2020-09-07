@@ -39,7 +39,7 @@
 
 
 #option-list{
-    /* list-style-type: none; */
+    list-style-type: none;
     padding-left: 15px;
     background-color: white;
 }
@@ -70,22 +70,43 @@ li button {
     margin-bottom: 40px;
 }
   
+.button-settings,
 .go-back-btn,
-.clear-highscores-btn
+.clear-highscores-btn,
+#start-quiz-button,
+#score-submit
 {
     background-color: #3f1477;
     color: white;
     
 }
 
-.go-back-btn:hover{
+.button-settings:hover,
+.go-back-btn:hover,
+.clear-highscores-btn:hover,
+#start-quiz-button:hover,
+#score-submit:hover{
    
     color: white;
     background-color: rgb(147, 119, 175);
 }
 
-.clear-highscores-btn:hover{
-    /* opacity: 1; */
-     color: white;
-     background-color: rgb(147, 119, 175);
- }
+#user-initials{
+    width: 50%;
+    display: inline-block;
+    height: 40px;
+}
+
+#highscore-list-div
+{
+    background-color:#bfb5d1;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    position: relative;
+    margin-left:15px;
+    margin-bottom: 20px;
+}
+ol{
+    margin-bottom: 0px;
+    padding-left: 20px;
+}
