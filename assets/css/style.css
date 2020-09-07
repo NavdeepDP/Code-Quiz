@@ -57,4 +57,35 @@ li button {
     color: white;
     font-size: 1em;
   }
+
+
+
+/* HIgh Score page */
+#main-container
+{
+    margin-top:50px;
+    
+}
+#highscore-heading-row{
+    margin-bottom: 40px;
+}
   
+.go-back-btn,
+.clear-highscore-btn
+{
+    background-color: #3f1477;
+    color: white;
+    
+}
+
+.go-back-btn:hover{
+   
+    color: white;
+    background-color: rgb(147, 119, 175);
+}
+
+.clear-highscore-btn:hover{
+    /* opacity: 1; */
+     color: white;
+     background-color: rgb(147, 119, 175);
+ }

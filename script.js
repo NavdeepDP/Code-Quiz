@@ -1,11 +1,16 @@
 console.log("Checking js script");
 
+
+var highestScoresSet = [];
+
+function index()
+{
 /**
  * VARIABLES
  */
 
 var questionIndex = 0;
-var score =0;
+var score = 0;
 
 var questionSet = [
 
@@ -38,6 +43,9 @@ var questionSet = [
 
 ];
 
+
+
+
 /**
  * DOM ELEMENTS
  */
@@ -52,9 +60,10 @@ var optionList = document.getElementById("option-list");
 var resultDiv = document.getElementById("result-div");
 var answerCheck = document.getElementById("answer-check-result");
 var timeCounter = document.getElementById("time-counter");
-var allDoneDiv= document.getElementById("all-done");
-var testScoreElement  = document.getElementById("test-score");
-
+var allDoneDiv = document.getElementById("all-done");
+var testScoreElement = document.getElementById("test-score");
+var scoreSubmitButton = document.getElementById("score-submit");
+var userInitialsTextInput = document.getElementById("user-initials");
 
 
 
@@ -67,7 +76,7 @@ function startQuiz(event) {
     // clear the start quiz message on  the page
     quizStartDiv.style.display = "none";
     // clear all done display
-    allDoneDiv.style.display ="none";
+    allDoneDiv.style.display = "none";
     // start timer
     startTimer();
 
@@ -81,7 +90,7 @@ function displayNextQuestionAndOptions() {
     // question
     questionParagraph.textContent = questionSet[questionIndex].question;
 
-    optionList.innerHTML ="";
+    optionList.innerHTML = "";
 
     quizQuestionRowCol.appendChild(questionParagraph);
     // options
@@ -104,22 +113,23 @@ function displayNextQuestion() {
 
     resultDiv.style.display = "none";
     questionIndex++;
-    if(questionIndex >= questionSet.length)
-    {
+    if (questionIndex >= questionSet.length) {
         testDoneDisplay();
     }
-    else{
+    else {
         displayNextQuestionAndOptions();
     }
-    
+
 }
 
-function testDoneDisplay()
-{
+function testDoneDisplay() {
+    totalSeconds = 0;
+    clearInterval(interval);
+    renderTime();
     resultDiv.style.display = "none";
     quizQuestionsDiv.style.display = "none";
     testScoreElement.textContent = score;
-    allDoneDiv.style.display="block";
+    allDoneDiv.style.display = "block";
 }
 /***
  * FUNCTION CALLS
@@ -133,8 +143,11 @@ function testDoneDisplay()
 
 startQuizButton.addEventListener("click", startQuiz);
 
+
+
 optionList.addEventListener("click", function (event) {
     var element = event.target;
+    var timeOut = false;
     if (element.matches("button") === true) {
         var optionIndex = element.parentElement.getAttribute("data-index");
         var questionIndex = element.parentElement.getAttribute("question-index");
@@ -147,24 +160,61 @@ optionList.addEventListener("click", function (event) {
             console.log("correct answer");
         }
         else {
-            answerCheck.textContent = "Wrong!";
+            answerCheck.textContent = "Wrong!";           
+
+            if (((totalSeconds -15) === 0) || ((totalSeconds - 15) < 0)) {
+                timeOut = true;
+            }
+            else
+            {
+                // subtract the time from timer
+                totalSeconds = totalSeconds - 15;
+                renderTime();
+            }
+            
             console.log("Wrong answer");
         }
         answerCheck.style.fontStyle = "italic";
         resultDiv.style.display = "block";
 
-       
-        setTimeout(function(){  displayNextQuestion(); }, 1000);
+
+        setTimeout(function () {
+            if (timeOut === true) {
+                totalSeconds = 0;                
+                testDoneDisplay
+            }
+            else {
+                displayNextQuestion();
+            }
+        }, 500);
+
 
     }
 
 });
 
 
+scoreSubmitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    
+    highestScoresSet = JSON.parse(localStorage.getItem("scores"));
+    var userInitialValue = userInitialsTextInput.value;
+    var object = {};
+    object.initials = userInitialValue;
+    object.score = score;
+    if (userInitialValue.length > 0) {
+        highestScoresSet.push(object);
+    }
+    
+    localStorage.setItem("scores", JSON.stringify(highestScoresSet));
+    window.location.href = "./highscores.html";
+});
+
+
 /**
  * TIMER VARIABLES
  */
-var totalSeconds = 10;
+var totalSeconds = 60;
 
 var Interval;
 /**
@@ -180,8 +230,7 @@ function startTimer() {
 
             totalSeconds--;
             renderTime();
-            if (totalSeconds === 0)
-            {
+            if ((totalSeconds === 0) || (totalSeconds < 0)) {
                 clearInterval(interval);
                 testDoneDisplay();
             }
@@ -195,4 +244,29 @@ function startTimer() {
 function renderTime() {
 
     timeCounter.textContent = totalSeconds;
+}
+
+}
+
+function displayHighscoresList()
+{
+    
+/***
+ * HIGHSCORE PAGE
+ */
+
+
+var goBackBtn = document.getElementsByClassName(".go-back-btn");
+var highscoresList = document.getElementById("highscores-list");
+
+   var intialsScoresArray = JSON.parse(localStorage.getItem("scores"));
+
+    for(var i =0; i< intialsScoresArray.length; i++ )
+    {
+        var listElement = document.createElement("li");
+        listElement.textContent = intialsScoresArray[i].initials + "-" + intialsScoresArray[i].score
+        highscoresList.appendChild(listElement);        
+    }
+
+
 }
