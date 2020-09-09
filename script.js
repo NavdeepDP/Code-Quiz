@@ -1,4 +1,4 @@
-console.log("Checking js script");
+//console.log("Checking js script");
 
 function index() {
   /**
@@ -153,7 +153,7 @@ function index() {
       ) {
         answerCheck.textContent = "Correct!";
         score += 5;
-        console.log("correct answer");
+        //console.log("correct answer");
       } else {
         answerCheck.textContent = "Wrong!";
 
@@ -165,7 +165,7 @@ function index() {
           renderTime();
         }
 
-        console.log("Wrong answer");
+        //console.log("Wrong answer");
       }
       answerCheck.style.fontStyle = "italic";
       resultDiv.style.display = "block";
@@ -255,7 +255,7 @@ function displayHighscoresList() {
   }
 
   clearHighscoresBtn.addEventListener("click", function () {
-    console.log("clear high scores");
+    //console.log("clear high scores");
     highscoresList.innerHTML = " ";
     localStorage.clear();
   });
