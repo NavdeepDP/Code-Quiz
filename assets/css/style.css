@@ -1,9 +1,13 @@
 #view-high-score{
 
     color:purple;
+
+}
+#highscorelink-div{
     position: fixed;
     top:0;
-    left:0;
+    left:0px;
+    width:auto;
 }
 
 #time-div{
@@ -11,11 +15,13 @@
    position: fixed;
    top:0;
    right: 0;
+   width:auto;
 
 }
 
 #highscore-time-row
 {
+  margin-top:10px;
   margin-bottom: 50px;
 }
 
@@ -60,7 +66,7 @@ li button {
 
 
 
-/* HIgh Score page */
+/* High Score page */
 #main-container
 {
     margin-top:50px;
@@ -105,6 +111,7 @@ li button {
     position: relative;
     margin-left:15px;
     margin-bottom: 20px;
+    margin-right: 15px;
 }
 ol{
     margin-bottom: 0px;
