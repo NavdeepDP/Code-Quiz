@@ -18,7 +18,7 @@ Code is developed in VS code Studio
 - To start the quiz press the "Start Quiz" button.
 - Timer will start and the user will see the first question.
 - User can select the suitable answer by clicking the options. Right after the selection, the selected option will be evaluated.
--" Correct" or "Wrong" will be displayed to let the user know if the answer is correct or not.
+- "Correct" or "Wrong" will be displayed to let the user know if the answer is correct or not.
 - For each wrong answer 15 secs are reduced from the time assigned for the quiz.
 - If the time assigned for the test is over or if all the questions are answered following will be displayed with the
   displaying the total score (5 points for every correct answer).
